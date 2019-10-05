@@ -24,11 +24,11 @@ num_batchs = int(data_size/batch_size)
 data_x, data_y = read_data()
 data_y = one_hot(data_y)
 
-x = np.array(data_x[:data_size])
-y = np.array(data_y[:data_size])
+data_x = np.array(data_x[:data_size])
+data_y = np.array(data_y[:data_size])
 mean_image = np.mean(np.mean(data_x, axis=1))
-x = x.astype('float32')
-x = (x - mean_image) / np.mean(x, axis=0)
+data_x = data_x.astype('float32')
+data_x = (data_x - mean_image) / np.mean(x, axis=0)
 
 # preparando dados para validação
 val_x, val_y = read_data('mini_cinic10/val.npz')
@@ -38,7 +38,7 @@ val_y = np.array(val_y[:int(data_size*0.125)])
 
 mean_image = np.mean(np.mean(val_x, axis=1))
 val_x = val_x.astype('float32')
-val_x = (val_x - mean_image) / np.mean(x, axis=0)
+val_x = (val_x - mean_image) / np.mean(x_val, axis=0)
 
 # preparando dados para teste
 
@@ -48,7 +48,7 @@ test_y = np.array(test_y[:int(data_size*0.125)])
 
 mean_image = np.mean(np.mean(test_x, axis=1))
 test_x = test_x.astype('float32')
-test_x = (test_x - mean_image) / np.mean(x, axis=0)
+test_x = (test_x - mean_image) / np.mean(x_test, axis=0)
 
 
 def do_softmax():
