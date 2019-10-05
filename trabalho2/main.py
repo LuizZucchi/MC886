@@ -28,7 +28,7 @@ data_x = np.array(data_x[:data_size])
 data_y = np.array(data_y[:data_size])
 mean_image = np.mean(np.mean(data_x, axis=1))
 data_x = data_x.astype('float32')
-data_x = (data_x - mean_image) / np.mean(x, axis=0)
+data_x = (data_x - mean_image) / np.mean(data_x, axis=0)
 
 # preparando dados para validação
 val_x, val_y = read_data('mini_cinic10/val.npz')
