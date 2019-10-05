@@ -1,7 +1,7 @@
 """
 O NUMERO DE COLUNAS NA MATRIX A TEM QUE SER IGUAL AO DE LINHAS NA MATRIX B A_COLS == B_ROWS
 """
-from trabalho2.utils import *
+from MC886.trabalho2.utils import *
 
 
 class NeuralNetwork:
