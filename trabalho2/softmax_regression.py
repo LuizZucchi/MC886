@@ -17,7 +17,7 @@ def get_loss(w, x, y, l):
 
 
 def fix_learn_rate(epoch, init_learn_rate):
-    learn_rate = init_learn_rate/(1 + epoch/25)
+    learn_rate = init_learn_rate/(1 + epoch/1000)
     return learn_rate
 
 
