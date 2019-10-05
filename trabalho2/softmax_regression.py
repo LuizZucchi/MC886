@@ -53,7 +53,7 @@ def get_accur(x, y, w):
 
     accur = sum(predict == y)/(float(len(y)))
 
-    return accur
+    return accur, predict
 
 
 def train_softmax(x, y, num_iterations, init_learn_rate):
