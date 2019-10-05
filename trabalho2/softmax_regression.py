@@ -5,13 +5,13 @@ import scipy.sparse
 
 def get_loss(w, x, y, l):
     m = x.shape[0]
-    y_mat = one_hot(y)
+    # y_mat = one_hot(y)
 
     scores = np.dot(x, w)
     prob = softmax(scores)
 
-    loss = (-1/m) * np.sum(y_mat*np.log(prob)) + (l/2) * np.sum(w*w)
-    grad = (-1/m) * np.dot(x.T, (y_mat - prob)) + l*w
+    loss = (-1/m) * np.sum(y*np.log(prob)) + (l/2) * np.sum(w*w)
+    grad = (-1/m) * np.dot(x.T, (y - prob)) + l*w
 
     return loss, grad
 
@@ -57,7 +57,7 @@ def get_accur(x, y, w):
 
 
 def train_softmax(x, y, num_iterations, init_learn_rate):
-    w = np.random.randn(x.shape[1], len(np.unique(y)))
+    w = np.random.randn(x.shape[1], 10)
     l = 1
     losses = []
     learn_rate = init_learn_rate
