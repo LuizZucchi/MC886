@@ -115,7 +115,7 @@ class NeuralNetwork:
                 if i == 0:
                     predicts = predict
                 else:
-                    predicts = np.append(predicts, predict)
+                    predicts = np.append(predicts, predict, axis=0)
                 aux = np.zeros_like(predict)
                 aux[np.arange(len(predict)), predict.argmax(1)] = 1
                 a = y[i]
