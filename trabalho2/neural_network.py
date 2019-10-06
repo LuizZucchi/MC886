@@ -108,7 +108,6 @@ class NeuralNetwork:
 
     def eval(self, x, y):
             right = 0
-            predicts = []
             for i in range(y.shape[0]):
                 self.x = x[i]
                 predict = self.feedforward()
