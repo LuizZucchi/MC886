@@ -107,23 +107,23 @@ class NeuralNetwork:
                     print('Loss did not improve in last 5 epochs, stopping')
                     return
 
-    def eval(self, x, y):
-            right = 0
-            for i in range(y.shape[0]):
-                self.x = x[i]
-                predict = self.feedforward()
-                if i == 0:
-                    predicts = predict
-                else:
-                    predicts = np.append(predicts, predict, axis=0)
-                aux = np.zeros_like(predict)
-                aux[np.arange(len(predict)), predict.argmax(1)] = 1
-                a = y[i]
-                b = aux[0]
-                if np.array_equal(aux[0], y[i]):
-                    right += 1
-                    # print('\n{} predict: {}'.format(right, aux[0]))
-                    # print('{} actual: {}\n'.format(right, y[i]))
-            return right/y.shape[0], predicts
+        def eval(self, x, y):
+                right = 0
+                for i in range(y.shape[0]):
+                    self.x = x[i]
+                    predict = self.feedforward()
+                    if i == 0:
+                        predicts = predict
+                    else:
+                        predicts = np.append(predicts, predict, axis=0)
+                    aux = np.zeros_like(predict)
+                    aux[np.arange(len(predict)), predict.argmax(1)] = 1
+                    a = y[i]
+                    b = aux[0]
+                    if np.array_equal(aux[0], y[i]):
+                        right += 1
+                        # print('\n{} predict: {}'.format(right, aux[0]))
+                        # print('{} actual: {}\n'.format(right, y[i]))
+                return right/y.shape[0], predicts
 
 
