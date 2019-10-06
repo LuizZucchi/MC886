@@ -100,7 +100,7 @@ class NeuralNetwork:
             self.losses.append(loss)
             self.fix_learn_rate(epoch)
             if epoch % 5 == 0:
-                 eval, a = self.eval(X[:int(X.shape[0]*0.1)], Y[:int(Y.shape[0]*0.1)])
+                eval, a = self.eval(X[:int(X.shape[0]*0.1)], Y[:int(Y.shape[0]*0.1)])
                 print('epoch: {}, Loss: {}, accur: {}'.format(epoch, loss, eval))
             if epoch > 10:
                 if np.all(np.abs(np.diff(self.losses[epoch-5:-1])) < stop_cond):
