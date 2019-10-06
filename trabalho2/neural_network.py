@@ -114,7 +114,8 @@ def eval(self, x, y):
             predict = self.feedforward()
             if i == 0:
                 predicts = predict
-            predicts = np.append(predicts, predict)
+            else:
+                predicts = np.append(predicts, predict)
             aux = np.zeros_like(predict)
             aux[np.arange(len(predict)), predict.argmax(1)] = 1
             a = y[i]
